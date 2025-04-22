@@ -18,13 +18,13 @@ class Subscription(models.Model):
     def __str__(self):
         return f"{self.name} - {self.user.username}"
     
-    class Reminder(models.Model):
-        subscription = models.ForeignKey(Subscription, on_delete=models.CASCADE)
-        remind_date = models.DateField()
-        method = models.CharField(max_length=50, choices=[
-            ('Email', 'Email'),
-            ('In-App', 'In-App'),
-        ])
+class Reminder(models.Model):
+    subscription = models.ForeignKey(Subscription, on_delete=models.CASCADE)
+    remind_date = models.DateField()
+    method = models.CharField(max_length=50, choices=[
+        ('Email', 'Email'),
+        ('In-App', 'In-App'),
+    ])
 
-        def __str__(self):
-            return f"Reminder for {self.subscription.name} on {self.remind_date}"
+    def __str__(self):
+        return f"Reminder for {self.subscription.name} on {self.remind_date}"
