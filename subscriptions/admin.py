@@ -8,6 +8,7 @@ class SubscriptionAdmin(admin.ModelAdmin):
     list_filter = ('billing_cycle', 'category')
     search_fields = ('name', 'user_username')
 
+@admin.register(Reminder)
 class ReminderAdmin(admin.ModelAdmin):
     list_display = ('subscription', 'remind_date', 'method')
     list_filter = ('method',)
