@@ -6,7 +6,7 @@ from .models import Subscription, Reminder
 class SubscriptionAdmin(admin.ModelAdmin):
     list_display = ('name', 'user', 'price', 'billing_cycle', 'renewal_date', 'category')
     list_filter = ('billing_cycle', 'category')
-    search_fields = ('name', 'user_username')
+    search_fields = ('name', 'user__username')
 
 @admin.register(Reminder)
 class ReminderAdmin(admin.ModelAdmin):
